@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansuya Studios | Indie Game Studio</title>
+    <style>
+        /* Base Reset & Variables */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --accent-red: #8b0000;
+            --accent-glow: rgba(139, 0, 0, 0.6);
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography & Utility */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #fff;
+            border-bottom: 2px solid var(--accent-red);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Navigation */
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+            .nav-links a {
+                color: var(--text-muted);
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 0.9rem;
+                transition: color 0.3s ease;
+            }
+
+                .nav-links a:hover {
+                    color: var(--accent-red);
+                }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* Upcoming Project Section */
+        #games {
+            padding: 8rem 0;
+            background-color: #0f0f0f;
+            position: relative;
+        }
+
+        .game-showcase {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background: linear-gradient(145deg, #111, #050505);
+            border: 1px solid #333;
+            border-left: 5px solid var(--accent-red);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .game-info {
+            flex: 1;
+        }
+
+            .game-info h3 {
+                font-size: 2.2rem;
+                color: #fff;
+                margin-bottom: 0.5rem;
+            }
+
+        .game-tags {
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tag {
+            background: #222;
+            color: var(--accent-red);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .game-info p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Placeholder for Game Art */
+        .game-art {
+            flex: 1;
+            height: 300px;
+            background: repeating-linear-gradient( 45deg, #1a1a1a, #1a1a1a 10px, #222 10px, #222 20px );
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-style: italic;
+            border-radius: 4px;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
+        }
+
+        /* Team Section */
+        #team {
+            padding: 8rem 0;
+            background: #0a0a0a;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: #111;
+            padding: 2rem;
+            border: 1px solid #222;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+            .team-member:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent-red);
+            }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            background: #222;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-member h4 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .roles {
+            color: var(--accent-red);
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+            footer p {
+                color: #555;
+                font-size: 0.9rem;
+            }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .game-showcase {
+                flex-direction: column;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">ANSUYA STUDIOS</a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#games">Games</a></li>
+                    <li><a href="#team">The Team</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Crafting Interactive Fear</h1>
+            <p>An independent game studio dedicated to pushing the boundaries of cinematic storytelling, advanced AI behaviors, and immersive survival horror mechanics.</p>
+        </div>
+    </section>
+
+    <section id="games">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">In Development</h2>
+            </div>
+
+            <div class="game-showcase">
+                <div class="game-info">
+                    <h3>Undesirable Jobs</h3>
+                    <div class="game-tags">
+                        <span class="tag">VR</span>
+                        <span class="tag">Survival Horror</span>
+                        <span class="tag">Unreal Engine 5</span>
+                    </div>
+                    <p>Step into the night shifts that no one else wants to take. <strong>Undesirable Jobs</strong> is an immersive VR survival horror experience built from the ground up to test your nerves. Utilizing advanced spatial audio, reactive enemy AI, and deeply atmospheric level design, this isn't just about jump scares—it's about unrelenting psychological dread.</p>
+                    <p>You have a quota to meet. You have a job to do. But you are not alone.</p>
+                </div>
+                <div class="game-art">
+                    [ Concept Art / In-Game Screenshot goes here ]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">The Developers</h2>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span style="color: #444; font-size: 2rem;">HS</span>
+                    </div>
+                    <h4>Harsh Shukla</h4>
+                    <div class="roles">Game Director | AI Engineer | Data Scientist</div>
+                    <p>Guiding the overarching vision, cinematic storytelling, and complex technical architecture. Specializes in building reactive AI systems and leveraging data structures to create unpredictable horror encounters.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span style="color: #444; font-size: 2rem;">KS</span>
+                    </div>
+                    <h4>Krishn Shukla</h4>
+                    <div class="roles">Game Developer | Level Designer</div>
+                    <p>Architecting the nightmares. Responsible for translating terrifying concepts into meticulously crafted, interactive VR environments and implementing core gameplay mechanics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ansuya Studios. All rights reserved. Do not look behind you.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
